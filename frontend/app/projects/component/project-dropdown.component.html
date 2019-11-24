@@ -1,0 +1,18 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    {{ dropdownBtn }}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" [attr.data-target]=" '#' + projectDetail.modalId" data-toggle="modal"
+      (click)="projectDetail.freshForm()"><i class="fa fa-plus" aria-hidden="true"></i> Add new project</a>
+    <a class="dropdown-item" *ngFor="let project of projects" (click)="selectProject(project)">{{ project.name }}</a>
+  </div>
+</div>
+<div>
+  <p>
+    <b>Description: </b>
+    {{ projectDesc }}
+  </p>
+</div>
+<project-detail #projectDetail></project-detail>

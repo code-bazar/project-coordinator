@@ -1,0 +1,13 @@
+nav {
+    padding: 2rem;
+    background-color: #34434B;
+    border-radius: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.24);
+}
+#nav-dropdown {
+    color: #FFF;
+    border-color: #FFF;
+}
+.dropdown-menu:focus {
+    /* border-radius: 0; */
+}

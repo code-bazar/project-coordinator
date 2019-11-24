@@ -1,0 +1,64 @@
+h1 {
+    color: #34434B;
+}
+.alert {
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+.btn {
+    margin-bottom: 1rem;
+}
+.btn-success,
+.btn-success:active,
+.btn-success:focus,
+.btn-success:active:focus {
+    background-color: #A09474;
+    border-color: #A09474;
+    outline-color: #A09474;
+}
+.btn-success:hover,
+.btn-success:disabled,
+.btn-success:disabled:hover {
+    background-color: #ACA286;
+    border-color: #ACA286;
+    outline-color: #ACA286
+}
+.btn-xl {
+    padding: 1.2rem 3rem;
+}
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:active:focus {
+    background-color: #34434B;
+    border-color: #34434B;
+    outline-color: #34434B;
+}
+.btn-primary:hover,
+.btn-primary:disabled,
+.btn-primary:disabled:hover {
+    background-color: #3F515A;
+    border-color: #3F515A;
+    outline-color: #3F515A
+}
+.form-control {
+    border-radius: 0;
+    font-weight: lighter;
+    border-radius: .25rem;
+}
+.form-control:focus {
+    border-color: #A09474;
+}
+select {
+    text-transform: uppercase;
+    border: none !important;
+    height: 3.5rem !important;
+    -webkit-appearance: none;
+}
+textarea {
+    background-color: #F7F7F7 !important;
+    resize: none;
+}
+input:focus {
+    border-color: #A09474;
+}
