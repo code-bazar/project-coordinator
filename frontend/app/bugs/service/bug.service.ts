@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { FirebaseConfigService } from '../../core/service/firebase-config.service';
 
 import { Observable } from "rxjs/Observable";
+//import {  } from 'rxjs/operators';
+
+import { Http } from '@angular/http'
 
 import { Bug } from '../model/bug';
 import { error } from "util";
@@ -11,11 +14,12 @@ import { error } from "util";
 export class BugService {
 
     private bugsDbRef = this.fireService.database.ref('/bugs'); //We can also do this *.ref().child('bugs') -- *ref() with empty
+    private URL = "http://localhost/json/export.json"
     //brackets points to root
 
     private projectBugsDbRef = null;
 
-    constructor(private fireService: FirebaseConfigService) {
+    constructor(private fireService: FirebaseConfigService, private http: Http) {
 
     }
 
@@ -30,6 +34,16 @@ export class BugService {
                     obs.throw(err);
                 });
         });
+    }
+
+    getAddedBugFromAPI(): Observable<any> {
+        return this.http.get(this.URL)
+                        // ...and calling .json() on the response to return data
+                         .map(res => {
+                             console.log(res.json());
+                            })
+                         //...errors if any
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     changedListener(): Observable<any> {

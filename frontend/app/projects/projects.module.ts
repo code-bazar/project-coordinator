@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/catch';
 
 //Component
 import { BugListComponent } from '../bugs/bug-list/bug-list.component';
@@ -19,7 +23,8 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
     imports: [              //Imports are for Modules
         SharedModule,
         ProjectsRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule
     ],
     declarations: [         //Declarations are for components and thing related to layout
         BugListComponent,

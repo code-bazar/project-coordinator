@@ -12,6 +12,7 @@ import { Bug } from '../model/bug';
 export class BugListComponent implements OnInit {
 
     private bugs: Bug[] = [];
+    private bugs2: Bug[] = [];
 
     constructor(private bugService: BugService) {
 
@@ -19,6 +20,7 @@ export class BugListComponent implements OnInit {
 
     ngOnInit() {
         this.getAddedBugs();
+        console.log(this.bugs2);
         this.getUpdatedBugs();
     }
 
@@ -31,6 +33,14 @@ export class BugListComponent implements OnInit {
             err => {
                 console.error("Unable to get added bugs - ", err);
             });
+
+        this.bugService.getAddedBugFromAPI()
+            .subscribe(bug => {
+                this.bugs2.push(bug);
+            },
+            err => {
+                console.error("Unable to get added bugs - ", err);
+            })
     }
 
     getUpdatedBugs() {
