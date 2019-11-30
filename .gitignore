@@ -1,12 +1,7 @@
 # FRONTEND
-/frontend/node_modules
-/frontend/app/**/**.js
-/frontend/app/**/**.js.map
+node_modules
+app/**/**.js
+app/**/**.js.map
 
 ### TODO: get rid of below - use vault
-/frontend/app/**/constants.ts
-
-# BACKEND
-
-
-# ARCHITECTURE
+app/**/constants.ts
