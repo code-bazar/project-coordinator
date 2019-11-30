@@ -1,5 +1,6 @@
 #!/bin/bash
 
-$VERSION=$1
+VERSION=$1
 
-docker build -t project-coordinator:${VERSION}
+cd ..
+docker build -t project-coordinator:${VERSION} .
