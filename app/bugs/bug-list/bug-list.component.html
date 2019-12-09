@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let bug of bugs" [attr.data-target]=" '#' + bugDetail.modalId" data-toggle="modal"
+                <tr *ngFor="let bug of bugs2" [attr.data-target]=" '#' + bugDetail.modalId" data-toggle="modal"
                     (click)="bugDetail.configureForm(bug, projectDropdown.projectId)">
                     <td>{{ bug.title }}</td>
                     <td>{{ bug.status | status}}</td>

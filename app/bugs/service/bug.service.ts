@@ -14,7 +14,7 @@ import { error } from "util";
 export class BugService {
 
     private bugsDbRef = this.fireService.database.ref('/bugs'); //We can also do this *.ref().child('bugs') -- *ref() with empty
-    private URL = "http://localhost/json/export.json"
+    private URL = "http://localhost:8080/bugs"
     //brackets points to root
 
     private projectBugsDbRef = null;
@@ -38,12 +38,13 @@ export class BugService {
 
     getAddedBugFromAPI(): Observable<any> {
         return this.http.get(this.URL)
-                        // ...and calling .json() on the response to return data
-                         .map(res => {
-                             console.log(res.json());
-                            })
-                         //...errors if any
-                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+            // ...and calling .json() on the response to return data
+            .map(bug => {
+                const newBugs = bug.json() as Bug[];
+                return newBugs;
+            })
+            //...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     changedListener(): Observable<any> {

@@ -6,7 +6,7 @@ import { Bug } from '../model/bug';
     moduleId: module.id,
     selector: 'bug-list',
     templateUrl: 'bug-list.component.html',
-    styleUrls: [ 'bug-list.component.css' ]
+    styleUrls: ['bug-list.component.css']
 })
 
 export class BugListComponent implements OnInit {
@@ -20,7 +20,6 @@ export class BugListComponent implements OnInit {
 
     ngOnInit() {
         this.getAddedBugs();
-        console.log(this.bugs2);
         this.getUpdatedBugs();
     }
 
@@ -30,17 +29,19 @@ export class BugListComponent implements OnInit {
             .subscribe(bug => {
                 this.bugs.push(bug);
             },
-            err => {
-                console.error("Unable to get added bugs - ", err);
-            });
+                err => {
+                    console.error("Unable to get added bugs - ", err);
+                });
 
         this.bugService.getAddedBugFromAPI()
-            .subscribe(bug => {
-                this.bugs2.push(bug);
+            .subscribe(bugs => {
+                bugs.forEach(bug => {
+                    this.bugs2.push(bug)
+                });
             },
-            err => {
-                console.error("Unable to get added bugs - ", err);
-            })
+                err => {
+                    console.error("Unable to get added bugs - ", err);
+                })
     }
 
     getUpdatedBugs() {
@@ -49,11 +50,11 @@ export class BugListComponent implements OnInit {
                 //BELOW: we are trying to get an index for the bug that matches our updated bug based on id value
                 //on array we use map to go throug every element in our array and it returns everything it finds as a array
                 //it looks for the element with value 'updatedBug['id']' of any property
-                const bugIndex = this.bugs.map(index => index.id).indexOf(updatedBug['id']);
-                this.bugs[bugIndex] = updatedBug;
+                const bugIndex = this.bugs2.map(index => index.id).indexOf(updatedBug['id']);
+                this.bugs2[bugIndex] = updatedBug;
             },
-            err => {
-                console.error("Unable to get updated bug - ", err);
-            });
+                err => {
+                    console.error("Unable to get updated bug - ", err);
+                });
     }
 }
