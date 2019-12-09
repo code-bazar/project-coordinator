@@ -4,4 +4,4 @@ app/**/**.js
 app/**/**.js.map
 
 ### TODO: get rid of below - use vault
-app/**/constants.ts
+app/core/**/constants.ts
